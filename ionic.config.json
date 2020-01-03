@@ -1,5 +1,7 @@
 {
   "name": "SurfShoop",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
