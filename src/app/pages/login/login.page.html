@@ -1,5 +1,5 @@
-<ion-content class="swiper-no-swiping">
-  <div class="container top" *ngIf="!keyboard.isVisible">
+<ion-content class="swiper-no-swiping" (click)="setKeyBoardOnScree($event)">
+  <div class="container top" [hidden]="keyBoardOnScreen || keyboard.isVisible">
     <ion-img src="/assets/img/logo.png"></ion-img>
 
     <ion-segment (ionChange)="segmentChanged($event)" value="login">
@@ -14,7 +14,7 @@
 
   <ion-slides>
     <ion-slide>
-      <div class="slide-inner ion-padding">
+      <div class="slide-inner ion-padding" (click)="setKeyBoardOnScree($event)" id="login">
         <span>Login</span>
         <ion-item class="ion-margin-top" lines="none">
           <ion-input type="email" placeholder="E-mail" [(ngModel)]="userLogin.email"></ion-input>
@@ -28,10 +28,10 @@
       </div>
     </ion-slide>
     <ion-slide>
-      <div class="slide-inner ion-padding">
+      <div class="slide-inner ion-padding" (click)="setKeyBoardOnScree($event)" id="register">
         <span>Cadastro</span>
         <ion-item class="ion-margin-top" lines="none">
-          <ion-input type="text" placeholder="Nome"  [(ngModel)]="userRegister.name" ></ion-input>
+          <ion-input type="text" placeholder="Nome" [(ngModel)]="userRegister.name"></ion-input>
         </ion-item>
         <ion-item class="ion-margin-top" lines="none">
           <ion-input type="email" placeholder="E-mail" [(ngModel)]="userRegister.email"></ion-input>
@@ -50,8 +50,9 @@
     <div class="waves" [ngStyle]="{'background-position-x': wavesPosition + 'px'}">
 
     </div>
-    <div class="container bottom ion-text-center" *ngIf="!keyboard.isVisible">
+    <div class="container bottom ion-text-center" [hidden]="keyBoardOnScreen || keyboard.isVisible ">
       <span>Uma loja para quem é apaixonado pelo mar!</span>
     </div>
   </div>
 </ion-content>
+
