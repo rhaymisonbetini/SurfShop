@@ -26,15 +26,14 @@ export class LoginPage implements OnInit {
 
   }
 
-  async register() {
-    await this.presentLoading();
-    try {
-      await this.auth.register()
-    } catch (error) {
-      console.error(error);
-    } finally {
+  register() {
+    this.presentLoading();
+    this.auth.register(this.userRegister).subscribe(userData => {
+      console.log(userData);
       this.loadingControler.dismiss();
-    }
+    }, error => {
+      console.log(error);
+    });
   }
 
   segmentChanged(event: any) {
