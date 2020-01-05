@@ -33,7 +33,9 @@ export class LoginPage implements OnInit {
     this.auth.login(this.userLogin).subscribe(userLogin => {
       this.loadingControler.dismiss();
       if (userLogin.access_token) {
+        console.log(userLogin);
         this.tokeService.setToken(userLogin.access_token);
+        this.tokeService.setUserId(userLogin.user_id);
         this.router.navigate(['home']);
       } else {
         this.presentToast('Ocorreu um erro com sua solicitação, tente novamente');

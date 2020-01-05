@@ -9,18 +9,18 @@
 
 <ion-content>
   <ion-list class="ion-no-padding">
-    <form>
+    <form [formGroup]="productForm">
       <ion-item>
-        <ion-input type="text" placeholder="Nome"></ion-input>
+        <ion-input type="text" placeholder="Nome" formControlName="name"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input type="text" placeholder="Descricao"></ion-input>
+        <ion-input type="text" placeholder="Descricao" formControlName="description"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input type="text" placeholder="Foto"></ion-input>
+        <ion-input type="text" placeholder="Foto" formControlName="picture"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input type="text" placeholder="Preço"></ion-input>
+        <ion-input type="text" placeholder="Preço R$" formControlName="price"></ion-input>
       </ion-item>
     </form>
   </ion-list>

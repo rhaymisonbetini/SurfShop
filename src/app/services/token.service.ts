@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
-const KEY = 'authToken'
+const KEY = 'authToken';
+const USER = 'userId';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,14 @@ export class TokenService {
 
   getToken() {
     return localStorage.getItem(KEY);
+  }
+
+  setUserId(id: string): void {
+    localStorage.setItem(USER, id);
+  }
+
+  getUserIdToken() {
+    return localStorage.getItem(USER);
   }
 
   clearToken(): void {

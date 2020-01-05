@@ -15,7 +15,7 @@ export class HomePage implements OnInit, OnDestroy {
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
-    this.productsSubscripiton = this.productService.product.subscribe((prods: Product[]) => {
+    this.productsSubscripiton = this.productService.productudos.subscribe((prods: Product[]) => {
       this.products = prods
     })
     this.productService.getProducts();
