@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides, LoadingController, ToastController, IonSegment } from '@ionic/angular';
-import { Keyboard } from '@ionic-native/keyboard/ngx';
 import { User } from 'src/app/interfaces/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
@@ -21,7 +20,7 @@ export class LoginPage implements OnInit {
   public userLogin: User = {};
   public userRegister: User = {};
 
-  constructor(public keyboard: Keyboard, private loadingControler: LoadingController,
+  constructor(private loadingControler: LoadingController,
     private toaste: ToastController, private auth: AuthService, private tokeService: TokenService,
     private router: Router) { }
 
@@ -32,7 +31,6 @@ export class LoginPage implements OnInit {
   login() {
     this.presentLoading();
     this.auth.login(this.userLogin).subscribe(userLogin => {
-      console.log(userLogin);
       this.loadingControler.dismiss();
       if (userLogin.access_token) {
         this.tokeService.setToken(userLogin.access_token);
@@ -72,14 +70,6 @@ export class LoginPage implements OnInit {
     }
   }
 
-
-  setKeyBoardOnScree(event: any) {
-    if (event.target.id === 'login' || event.target.id === 'register') {
-      this.keyBoardOnScreen = true;
-    } else {
-      this.keyBoardOnScreen = false;
-    }
-  }
 
   async presentLoading() {
     this.loading = await this.loadingControler.create({
