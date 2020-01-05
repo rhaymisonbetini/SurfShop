@@ -3,7 +3,7 @@
 <div>
 <img class="wp-image-thumb img-responsive minha-classe" src="https://ap.imagensbrasil.org/images/2020/01/03/19fd791dd4d70ca88.jpg" width="250" height="450" alt="uber-clone" />
 <img class="wp-image-thumb img-responsive minha-classe" src="https://ap.imagensbrasil.org/images/2020/01/03/2c5a3dfdd2e27167c.jpg" width="250" height="450" alt="uber-clone" />
-
+<img class="wp-image-thumb img-responsive minha-classe" src="https://ap.imagensbrasil.org/images/2020/01/05/camisa.jpg" width="250" height="450" alt="uber-clone" />
 </div>
 
 # Sobre o aplicativo
