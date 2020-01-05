@@ -14,15 +14,23 @@
         <ion-input type="text" placeholder="Nome" formControlName="name"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input type="text" placeholder="Descricao" formControlName="description"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input type="text" placeholder="Foto" formControlName="picture"></ion-input>
+        <ion-textarea type="text" placeholder="Descricao" formControlName="description"></ion-textarea>
       </ion-item>
       <ion-item>
         <ion-input type="text" placeholder="Preço R$" formControlName="price"></ion-input>
       </ion-item>
+      <ion-item color="secondary" padding >
+        <ion-icon name="camera" slot="start" ></ion-icon>
+        Selecionar foto
+        <ion-input accept="image/jpeg" type="file" formControlName="picture" (change)="onFileChosen($event)" id="upload">
+        </ion-input>
+      </ion-item>
     </form>
+    <ion-row *ngIf="picker" padding>
+      <ion-col class="img-square">
+        <ion-img [src]="picker"></ion-img>
+      </ion-col>
+    </ion-row>
   </ion-list>
 </ion-content>
 

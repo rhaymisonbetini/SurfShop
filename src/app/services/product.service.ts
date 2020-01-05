@@ -5,7 +5,6 @@ import { Product } from '../interfaces/product';
 import { environment } from 'src/environments/environment'
 import { BehaviorSubject } from 'rxjs';
 import { map, take, tap, switchMap } from 'rxjs/operators';
-import { LoadingController, ToastController } from '@ionic/angular';
 
 
 @Injectable({
@@ -29,13 +28,11 @@ export class ProductService {
   }
 
   addProduct(produto: Product) {
-    let generatedId: number;
-    const newProduct = produto;
-    return this.http.post<Product>(environment.api+'auth/product/create', produto).pipe(switchMap((res: Product) => {
-      generatedId = res.id;
+    let newProduct: Product;
+    return this.http.post<Product>(environment.api + 'auth/product/create', produto).pipe(switchMap((res: Product) => {
+      newProduct = res;
       return this.products
     }), take(1), tap(product => {
-      newProduct.id = generatedId;
       console.log(newProduct);
       this.productudos.next(product.concat(newProduct))
     }))
@@ -52,5 +49,6 @@ export class ProductService {
   deleteProduct(id: string) {
 
   }
+  
 
 }
